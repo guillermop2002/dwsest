@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Web de Juegos</title>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/css/JavaScript.js"></script>
+</head>
+<body background="https://static.vecteezy.com/system/resources/previews/002/626/722/non_2x/dark-blue-background-with-small-and-big-stars-blur-decorative-design-in-simple-style-with-stars-pattern-for-websites-landing-pages-vector.jpg">
+<h1 class="box" style="font-size: xx-large; background: royalblue">¡ BIENVENIDO !</h1>
+<h2 style="font-family: Arial,serif; color: white">En nuestra web podrás encontrar una amplia selección de juegos, pero primero debes elegir una opción: </h2>
+<br>
+<a class="button" href="/allGames">Mostrar todos los juegos</a>
+{{#admin}}
+<a class="button"  href="/addGame">Añadir un juego nuevo</a>
+<a class="button"  href="/manageUsers">Administrar usuarios</a>
+<a class="button" href="/myProfile">Mi perfil</a>
+{{/admin}}
+{{#user}}
+<a class="button" href="/shoppingCart">Mostrar el Carro de la compra</a>
+<a class="button" href="/showOrders">Mostrar mis pedidos</a>
+<a class="button" href="/myProfile">Mi perfil</a>
+{{/user}}
+
+{{^admin}}
+{{^user}}
+<a class="button" href="/home/login">Iniciar sesión</a>
+{{/user}}
+{{/admin}}
+<br>
+<br>
+<img alt=""
+     height="500" src="https://artfiles.alphacoders.com/110/thumb-1920-110402.jpg" width="500">
+
+
+<br>
+<br>
+
+
+
+<br>
+<br>
+<a class="minibutton" value="Refresh site" style="background-color:green" onclick="refresh()">Recargar sitio</a>
+
+</body>
+</html>

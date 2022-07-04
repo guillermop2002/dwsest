@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Añade una nueva reseña</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/category.png" />
+    <link href='https://fonts.googleapis.com/css?family=Armata' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/css/JavaScript.js"></script>
+    <script src="/css/ckeditorc/ckeditor.js"></script>
+
+</head>
+<body background="https://static.vecteezy.com/system/resources/previews/002/626/722/non_2x/dark-blue-background-with-small-and-big-stars-blur-decorative-design-in-simple-style-with-stars-pattern-for-websites-landing-pages-vector.jpg" onload="enableEditMode();">
+
+{{#game}}
+<h1 class="box">Dinos tu opinión sobre {{name}}</h1>
+{{/game}}
+<form action="/game/{{idGame}}/newRating" method="post">
+    <input type="hidden" name="_csrf" value="{{token}}"/>
+    <label style="color: white">Resumen:</label>
+    <label>
+        <input name="title" type="text">
+    </label>
+    <br>
+    <br>
+    <label style="color: white">Comentario:</label>
+    <textarea name="comment" id="comment" rows="5" cols="30">
+    Escribe aquí tu comentario sobre el juego.
+            </textarea>
+    <script>
+        CKEDITOR.replace( 'comment', {
+            uiColor: '#9AB8F3'
+        });
+    </script>
+    <br>
+    <br>
+
+    <input id="radio1" name="stars" type="radio" value="1">
+    <label style="color: white" for="radio1">1 ★</label>
+    <input id="radio2" name="stars" type="radio" value="2">
+    <label style="color: white" for="radio2">2 ★</label>
+    <input id="radio3" name="stars" type="radio" value="3">
+    <label style="color: white" for="radio3">3 ★</label>
+    <input id="radio4" name="stars" type="radio" value="4">
+    <label style="color: white" for="radio4">4 ★</label>
+    <input id="radio5" name="stars" type="radio" value="5">
+    <label style="color: white" for="radio5">5 ★</label>
+
+    <input name="id" type="hidden" value="{{id}}">
+    <br>
+    <br>
+    <input class="button" type="submit" value="SUBMIT">
+</form>
+<br>
+    <a class="button" href="/allGames" style="background-color: red">Volver a Juegos</a>
+    <br>
+    <br>
+    <br>
+<br>
+<br>
+<br>
+<br>
+<a class="minibutton" value="Refresh site" style="background-color:green" onclick="refresh()">Recargar sitio</a>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Juegos</title>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/css/JavaScript.js"></script>
+
+</head>
+
+<body background="https://static.vecteezy.com/system/resources/previews/002/626/722/non_2x/dark-blue-background-with-small-and-big-stars-blur-decorative-design-in-simple-style-with-stars-pattern-for-websites-landing-pages-vector.jpg">
+<div>
+    <h1 class="box">TIENDA</h1>
+    <h4 style="color: white">Añade al carro el juego que quieras</h4>
+    {{#games}}
+    <h3 style="color: white">{{name}}- {{price}}€</h3>
+    <a class="minibutton" href="/gameDetails/{{idGame}}">Mostrar detalles</a>
+    <br>
+    -----------------------------
+    {{/games}}
+</div>
+<h4 style="color: white">Filtrar juegos</h4>
+<form action="/filteredGames" method="post">
+    <input type="hidden" name="_csrf" value="{{token}}"/>
+    <label style="color: white">Plataforma: </label>
+    <label>
+        <select name="platform">
+            <option>Cualquiera</option>
+            <option>PC</option>
+            <option>Xbox</option>
+            <option>PlayStation</option>
+            <option>Switch</option>
+        </select>
+    </label>
+    <label style="color: white">Precio mín:</label>
+    <label>
+        <input min="0" name="minprice" step="any" type="number" value="0" max="1000">
+    </label>
+    <label style="color: white">Precio máx:</label>
+    <label>
+        <input min="0" name="maxprice" step="any" type="number" value="100" max="1000">
+    </label>
+    <input class="minibutton" type="submit" value="FILTER" style="background-color: gold">
+</form>
+<br>
+<a class="button" href="/home/" style="background-color: red">Volver al inicio</a>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<button class="minibutton" id="BackButton" onclick="back()" style="background-color:green">Volver</button>
+
+<br>
+<br>
+<a class="minibutton" value="Refresh site" style="background-color:green" onclick="refresh()">Recargar sitio</a>
+
+</body>
+
+</html>

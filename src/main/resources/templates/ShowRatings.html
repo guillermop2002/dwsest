@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reseñas</title>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/css/JavaScript.js"></script>
+    <script src="/css/ckeditorc/ckeditor.js"></script>
+</head>
+<body background="https://static.vecteezy.com/system/resources/previews/002/626/722/non_2x/dark-blue-background-with-small-and-big-stars-blur-decorative-design-in-simple-style-with-stars-pattern-for-websites-landing-pages-vector.jpg">
+<input type="hidden" name="_csrf" value="{{token}}"/>
+<h1 class="box">Reseñas {{name}}</h1>
+{{#ratings}}
+<h1 style="color: white">Reseña: </h1>
+<strong style="color: white">{{title}}</strong>
+<br>
+<p style="color: white" :>Valoración: </p><strong style="color: white">{{stars}}</strong>
+<br>
+
+
+
+
+<div>
+<textarea name="{{id}}" id="{{id}}" rows="5" cols="30"  style="cursor: default">
+    {{comment}}
+            </textarea>
+
+<script>
+    CKEDITOR.replace( '{{id}}', {
+        uiColor: '#FFFFFF',
+        toolbar:[],
+        allowedContent: 'p h1 h2 strong em; a[!href]; img[!src,width,height];'
+    });
+
+</script>
+</div>
+<br>
+{{#admin}}
+<a class="minibutton" href="/game/{{idGame}}/deleteRating/{{id}}" style="background-color: red">Borrar reseña</a>
+{{/admin}}
+{{#user}}
+<a class="minibutton" href="/game/{{idGame}}/deleteRating/{{id}}" style="background-color: red">Borrar valoración</a>
+{{/user}}
+{{/ratings}}
+<br>
+<br>
+
+{{#user}}
+<a class="button" href="/game/{{idGame}}/ratings/createRating">Nueva valoración</a>
+{{/user}}
+<a class="button" href="/allGames" style="background-color: red">Volver a Juegos</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<button class="minibutton" id="BackButton" onclick="back()" style="background-color:green">Volver</button>
+<br>
+<br>
+<a class="minibutton" value="Refresh site" style="background-color:green" onclick="refresh()">Recargar sitio</a>
+</body>
+</html>

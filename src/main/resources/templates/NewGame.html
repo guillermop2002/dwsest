@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Añade un juego nuevo</title>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/css/JavaScript.js"></script>
+</head>
+<body background="https://static.vecteezy.com/system/resources/previews/002/626/722/non_2x/dark-blue-background-with-small-and-big-stars-blur-decorative-design-in-simple-style-with-stars-pattern-for-websites-landing-pages-vector.jpg">
+
+<h1 class="box">Dinos algo sobre el juego que quieres añadir:</h1>
+
+<div class="margin">
+    <form action="/addedGame" method="post">
+        <input type="hidden" name="_csrf" value="{{token}}"/>
+        <label style="color: white">Nombre: </label>
+        <br>
+        <label>
+            <input name='name' type='text'>
+        </label>
+        <br>
+        <label style="color: white">Plataforma: </label>
+        <br>
+        <!-- <input type="text" name="platform"> -->
+        <label>
+            <select name="platform">
+                <option>PC</option>
+                <option>Xbox</option>
+                <option>PlayStation</option>
+                <option>Switch</option>
+            </select>
+        </label>
+        <br>
+        <label style="color: white">Precio:</label>
+        <br>
+        <label>
+            <input min="0" name="price" step="any" type="number">
+        </label>
+        <br>
+        <hr style="width:25%;">
+        <input class="button" type="submit" value="ENVIAR">
+        <a class="button" href="/home/" style="background-color: red">Volver al inicio</a>
+
+
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a class="minibutton" value="Refresh site" style="background-color:green" onclick="refresh()">Recargar sitio</a>
+</div>
+</body>
+</html>
